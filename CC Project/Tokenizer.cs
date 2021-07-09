@@ -111,7 +111,7 @@ namespace CC_Project
             } //
 
             CodeArray = SourceCode.ToCharArray();
-            string Letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
+            string Letters = "abceghjklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
             string Numbers = "123456789";
             if (Letters.Contains(CodeArray[0]))
             {
@@ -367,7 +367,57 @@ namespace CC_Project
 
         private void State36()
         {
-            throw new NotImplementedException();
+            string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz0123456789";
+            bool CharConsumeFlag = false;
+            var CodeArray = SourceCode.ToCharArray();
+
+            if (CodeArray[0] == 'n')
+            {
+                if (!CharConsumeFlag)
+                {
+                    MoveNext();
+                    CharConsumeFlag = true;
+                }
+                State37();
+            }
+            else if (IdentifierCharacters.Contains(CodeArray[0]))
+            {
+                if (!CharConsumeFlag)
+                {
+                    MoveNext();
+                    CharConsumeFlag = true;
+                }
+                TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                State2();
+            }
+        }
+
+        private void State37()
+        {
+            string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrsuvwxyz0123456789";
+            bool CharConsumeFlag = false;
+            var CodeArray = SourceCode.ToCharArray();
+
+            if (CodeArray[0] == 't')
+            {
+                if (!CharConsumeFlag)
+                {
+                    MoveNext();
+                    CharConsumeFlag = true;
+                }
+                TokenCountHolderArray[Array.IndexOf(TokenTypes, "Data_type")] += 3;
+                //send to grand final state
+            }
+            else if (IdentifierCharacters.Contains(CodeArray[0]))
+            {
+                if (!CharConsumeFlag)
+                {
+                    MoveNext();
+                    CharConsumeFlag = true;
+                }
+                TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                State2();
+            }
         }
 
         private void State35()
@@ -460,7 +510,7 @@ namespace CC_Project
                     CharConsumeFlag = true;
                 }
                 TokenCountHolderArray[Array.IndexOf(TokenTypes, "Increment_operator")] += 2;
-                State6();
+                State14();
             }
             if (CodeArray[0] == '=')
             {
@@ -470,14 +520,25 @@ namespace CC_Project
                     CharConsumeFlag = true;
                 }
                 TokenCountHolderArray[Array.IndexOf(TokenTypes, "Assignment_incrementOperator")] += 2;
-                State8();
+                State13();
             }
+        }
+
+        private void State14()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void State13()
+        {
+            throw new NotImplementedException();
         }
 
         private void State5()
         {
             bool CharConsumeFlag = false;
             var CodeArray = SourceCode.ToCharArray();
+            string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz0123456789";
 
             if (CodeArray[0] == 'o')
             {
@@ -488,7 +549,7 @@ namespace CC_Project
                 }
                 State6();
             }
-            if (CodeArray[0] == 'l')
+            else if (CodeArray[0] == 'l')
             {
                 if (!CharConsumeFlag)
                 {
@@ -497,17 +558,127 @@ namespace CC_Project
                 }
                 State8();
             }
+            else if(IdentifierCharacters.Contains(CodeArray[0]))
+            {
+                if (!CharConsumeFlag)
+                {
+                    MoveNext();
+                    CharConsumeFlag = true;
+                }
+                TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                State2();
+            }
 
         }
 
         private void State8()
         {
-            return;
+            string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnpqrstuvwxyz0123456789";
+            bool CharConsumeFlag = false;
+            var CodeArray = SourceCode.ToCharArray();
+
+            if (CodeArray[0] == 'o')
+            {
+                if (!CharConsumeFlag)
+                {
+                    MoveNext();
+                    CharConsumeFlag = true;
+                }
+                State9();
+            }
+            else if (IdentifierCharacters.Contains(CodeArray[0]))
+            {
+                if (!CharConsumeFlag)
+                {
+                    MoveNext();
+                    CharConsumeFlag = true;
+                }
+                TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                State2();
+            }
+        }
+
+        private void State9()
+        {
+            string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZbcdefghijklmnopqrstuvwxyz0123456789";
+            bool CharConsumeFlag = false;
+            var CodeArray = SourceCode.ToCharArray();
+
+            if (CodeArray[0] == 'a')
+            {
+                if (!CharConsumeFlag)
+                {
+                    MoveNext();
+                    CharConsumeFlag = true;
+                }
+                State10();
+            }
+            else if (IdentifierCharacters.Contains(CodeArray[0]))
+            {
+                if (!CharConsumeFlag)
+                {
+                    MoveNext();
+                    CharConsumeFlag = true;
+                }
+                TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                State2();
+            }
+        }
+
+        private void State10()
+        {
+            string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrsuvwxyz0123456789";
+            bool CharConsumeFlag = false;
+            var CodeArray = SourceCode.ToCharArray();
+
+            if (CodeArray[0] == 't')
+            {
+                if (!CharConsumeFlag)
+                {
+                    MoveNext();
+                    CharConsumeFlag = true;
+                }
+                TokenCountHolderArray[Array.IndexOf(TokenTypes, "Data_type")] += 5;
+                State10();
+            }
+            else if (IdentifierCharacters.Contains(CodeArray[0]))
+            {
+                if (!CharConsumeFlag)
+                {
+                    MoveNext();
+                    CharConsumeFlag = true;
+                }
+                TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                State2();
+            }
         }
 
         private void State6()
         {
-            return;
+            string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqstuvwxyz0123456789";
+            bool CharConsumeFlag = false;
+            var CodeArray = SourceCode.ToCharArray();
+
+            if (CodeArray[0] == 'r')
+            {
+                if (!CharConsumeFlag)
+                {
+                    MoveNext();
+                    CharConsumeFlag = true;
+                }
+                TokenCountHolderArray[Array.IndexOf(TokenTypes, "For")] += 3;
+                State6();
+            }
+            else if (IdentifierCharacters.Contains(CodeArray[0]))
+            {
+                if (!CharConsumeFlag)
+                {
+                    MoveNext();
+                    CharConsumeFlag = true;
+                }
+                TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                State2();
+            }
         }
 
         private void State4()
