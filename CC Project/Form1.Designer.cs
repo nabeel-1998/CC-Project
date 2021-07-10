@@ -45,6 +45,7 @@ namespace CC_Project
             this.SourceCodeBox.Size = new System.Drawing.Size(421, 275);
             this.SourceCodeBox.TabIndex = 1;
             this.SourceCodeBox.Text = "";
+            this.SourceCodeBox.TextChanged += new System.EventHandler(this.SourceCodeBox_TextChanged);
             // 
             // TokenBox
             // 

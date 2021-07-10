@@ -24,11 +24,18 @@ namespace CC_Project
 
         private void GenerateToken_Click(object sender, EventArgs e)
         {
-            char[] arr = SourceCodeBox.Text.ToCharArray();
-            foreach(char item in arr)
+            TokenBox.Rows.Clear();
+            Tokenizer tokenizer = new Tokenizer(SourceCodeBox.Text);
+            var ListOftokens = tokenizer.TryTokenize();
+            foreach(var item in ListOftokens)
             {
-                TokenBox.Rows.Add(item, item);
+                TokenBox.Rows.Add(item.Value, item.TokenType);
             }
+        }
+
+        private void SourceCodeBox_TextChanged(object sender, EventArgs e)
+        {
+            GenerateToken.PerformClick();
         }
     }
 }
