@@ -22,7 +22,7 @@ namespace CC_Project
 
         }
 
-        private void GenerateToken()
+        private List<Token> GenerateToken()
         {
             TokenBox.Rows.Clear();
             Tokenizer tokenizer = new Tokenizer(SourceCodeBox.Text);
@@ -31,11 +31,23 @@ namespace CC_Project
             {
                 TokenBox.Rows.Add(item.Value, item.TokenType);
             }
+            return ListOftokens;
         }
 
+        void PopulateSymbolTable(List<Token> list_tokens)
+        {
+            SymbolTable.Rows.Clear();
+            SymbolTable st = new SymbolTable();
+            var ListOfSymbols=st.FindAndInsert(list_tokens);
+            foreach(var item in ListOfSymbols)
+            {
+                SymbolTable.Rows.Add(item.Id, item.Value, item.Type);
+            }
+        }
         private void SourceCodeBox_TextChanged(object sender, EventArgs e)
         {
-            GenerateToken();
+            var List=GenerateToken();
+            PopulateSymbolTable(List);
         }
     }
 }
