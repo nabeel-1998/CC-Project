@@ -46,8 +46,8 @@ namespace CC_Project
             "Assignment_decrementoperator", 
             "Assign_multiplyoperator",
             "Assign_divideoperator", 
-            "Open_kurli_brac",
-            "Close_kurli_braces",
+            "Open_kurli_brace",
+            "Close_kurli_brace",
             "Unidentified_Token"
         };
         List<Token> TokenList = new List<Token>();
@@ -319,7 +319,7 @@ namespace CC_Project
                             MoveNext();
                             CharConsumeflag = true;
                         }
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Open_kurli_brac")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Open_kurli_brace")] += 1;
                         State34();
                     }
 
@@ -330,7 +330,7 @@ namespace CC_Project
                             MoveNext();
                             CharConsumeflag = true;
                         }
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Close_kurli_braces")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Close_kurli_brace")] += 1;
                         State35();
                     }
 
@@ -737,8 +737,8 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 6;
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Data_type")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Data_type")] += 6;
                     State7();
                 }
                 if (IdentifierCharacters.Contains(CodeArray[0]))

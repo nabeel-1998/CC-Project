@@ -22,7 +22,7 @@ namespace CC_Project
 
         }
 
-        private void GenerateToken_Click(object sender, EventArgs e)
+        private void GenerateToken()
         {
             TokenBox.Rows.Clear();
             Tokenizer tokenizer = new Tokenizer(SourceCodeBox.Text);
@@ -35,7 +35,7 @@ namespace CC_Project
 
         private void SourceCodeBox_TextChanged(object sender, EventArgs e)
         {
-            GenerateToken.PerformClick();
+            GenerateToken();
         }
     }
 }
