@@ -22,33 +22,33 @@ namespace CC_Project
     class Tokenizer
     {
         /**
-         * Implementing DFA for identifying Tokens of "For Loop" Construct 
+         * Implementing DFA for identifying Tokens of "for Loop" Construct 
          **/
         public string[] TokenTypes =
         {
-            "For",
-            "Data_type", 
-            "Identifier", 
-            "Open_parenthesis",
-            "Close_parenthesis",  
-            "Assignment_operator",
-            "Less_equal_operator", 
-            "Greater_equal_operater", 
-            "Not_equal_operator",
-            "Equality_operator", 
+            "for",
+            "data_type", 
+            "identifier", 
+            "open_parenthesis",
+            "close_parenthesis",  
+            "assignment_operator",
+            "less_equal_operator", 
+            "greater_equal_operater", 
+            "not_equal_operator",
+            "equality_operator", 
             "great_then_operator",
             "less_then_operator",
-            "Constant",
-            "Terminator", 
-            "Increment_operator",
-            "Decrement_Operator",
-            "Assignment_incrementOperator",
-            "Assignment_decrementoperator", 
-            "Assign_multiplyoperator",
-            "Assign_divideoperator", 
-            "Open_kurli_brace",
-            "Close_kurli_brace",
-            "Unidentified_Token"
+            "constant",
+            "terminator", 
+            "increment_operator",
+            "decrement_Operator",
+            "assignment_incrementoperator",
+            "assignment_decrementoperator", 
+            "assign_multiplyoperator",
+            "assign_divideoperator", 
+            "open_kurli_brace",
+            "close_kurli_brace",
+            "unidentified_Token"
         };
         List<Token> TokenList = new List<Token>();
         string SourceCode;
@@ -175,7 +175,7 @@ namespace CC_Project
                             string a = MoveNext();
                             CharConsumeflag = true;
                         }
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                         State2();
                     }
                     if (CodeArray[0] == '0')
@@ -185,7 +185,7 @@ namespace CC_Project
                             MoveNext();
                             CharConsumeflag = true;
                         }
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Constant")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "constant")] += 1;
                         State3();
                     }
                     if (Numbers.Contains(CodeArray[0]))
@@ -195,7 +195,7 @@ namespace CC_Project
                             MoveNext();
                             CharConsumeflag = true;
                         }
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Constant")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "constant")] += 1;
                         State4();
                     }
                     if (CodeArray[0] == 'f')
@@ -205,9 +205,9 @@ namespace CC_Project
                             MoveNext();
                             CharConsumeflag = true;
                         }
-                        //Increment will be on final state of "For";
-                        //TokenCountHolderArray[Array.IndexOf(TokenTypes, "For")] += 1;
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                        //Increment will be on final state of "for";
+                        //TokenCountHolderArray[Array.IndexOf(TokenTypes, "for")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                         State5();
                     }
 
@@ -241,7 +241,7 @@ namespace CC_Project
                             CharConsumeflag = true;
                         }
                         //Increment on final state of double
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                         State18();
                     }
 
@@ -297,7 +297,7 @@ namespace CC_Project
                             MoveNext();
                             CharConsumeflag = true;
                         }
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Open_parenthesis")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "open_parenthesis")] += 1;
                         State32();
                     }
 
@@ -308,7 +308,7 @@ namespace CC_Project
                             MoveNext();
                             CharConsumeflag = true;
                         }
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Close_parenthesis")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "close_parenthesis")] += 1;
                         State33();
                     }
 
@@ -319,7 +319,7 @@ namespace CC_Project
                             MoveNext();
                             CharConsumeflag = true;
                         }
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Open_kurli_brace")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "open_kurli_brace")] += 1;
                         State34();
                     }
 
@@ -330,7 +330,7 @@ namespace CC_Project
                             MoveNext();
                             CharConsumeflag = true;
                         }
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Close_kurli_brace")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "close_kurli_brace")] += 1;
                         State35();
                     }
 
@@ -342,7 +342,7 @@ namespace CC_Project
                             CharConsumeflag = true;
                         }
                         //increment will be done on final state of Int
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                         State36();
                     }
 
@@ -354,8 +354,8 @@ namespace CC_Project
                             CharConsumeflag = true;
                         }
 
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Terminator")] += 1;
-                        State39();
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "terminator")] += 1;
+                        
                     }
 
                     if (CodeArray[0] == '=')
@@ -365,7 +365,7 @@ namespace CC_Project
                             MoveNext();
                             CharConsumeflag = true;
                         }
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Assignment_operator")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "assignment_operator")] += 1;
                         State40();
                     }
 
@@ -376,7 +376,7 @@ namespace CC_Project
                             MoveNext();
                             CharConsumeflag = true;
                         }
-                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "Unidentified_Token")] += 1;
+                        TokenCountHolderArray[Array.IndexOf(TokenTypes, "unidentified_Token")] += 1;
                     }
                     if (CodeArray[0] == '!')
                     {
@@ -401,7 +401,7 @@ namespace CC_Project
                 if (CodeArray[0] == '=')
                 {
                     MoveNext();
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Assign_multiplyoperator")] += 2;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "assign_multiplyoperator")] += 2;
                 }
             }
         }
@@ -414,7 +414,7 @@ namespace CC_Project
                 if (CodeArray[0] == '=')
                 {
                     MoveNext();
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Not_equal_operator")] += 2;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "not_equal_operator")] += 2;
                 }
             }
             
@@ -428,7 +428,7 @@ namespace CC_Project
                 if (CodeArray[0] == '=')
                 {
                     MoveNext();
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Equality_operator")] += 2;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "equality_operator")] += 2;
                 }
             }
             
@@ -443,7 +443,7 @@ namespace CC_Project
                 if (CodeArray[0] == '=')
                 {
                     MoveNext();
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Equality_operator")] += 2;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "equality_operator")] += 2;
                 }
             }
             return;
@@ -455,7 +455,7 @@ namespace CC_Project
             {
 
 
-                string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz0123456789";
+                string identifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz0123456789";
                 bool CharConsumeFlag = false;
                 var CodeArray = SourceCode.ToCharArray();
 
@@ -466,17 +466,17 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State37();
                 }
-                else if (IdentifierCharacters.Contains(CodeArray[0]))
+                else if (identifierCharacters.Contains(CodeArray[0]))
                 {
                     if (!CharConsumeFlag)
                     {
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
             }
@@ -488,7 +488,7 @@ namespace CC_Project
             {
 
 
-                string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrsuvwxyz0123456789";
+                string identifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrsuvwxyz0123456789";
                 bool CharConsumeFlag = false;
                 var CodeArray = SourceCode.ToCharArray();
 
@@ -499,18 +499,18 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Data_type")] += 3;
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "data_type")] += 3;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State7();
                 }
-                else if (IdentifierCharacters.Contains(CodeArray[0]))
+                else if (identifierCharacters.Contains(CodeArray[0]))
                 {
                     if (!CharConsumeFlag)
                     {
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
             }
@@ -563,7 +563,7 @@ namespace CC_Project
                 if (CodeArray[0] == '=')
                 {
                     MoveNext();
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Assign_divideoperator")] += 2;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "assign_divideoperator")] += 2;
                 }
             }
         }
@@ -577,7 +577,7 @@ namespace CC_Project
                 if (CodeArray[0] == '=')
                 {
                     MoveNext();
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Less_equal_operator")] += 2;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "less_equal_operator")] += 2;
                 }
             }
         }
@@ -591,7 +591,7 @@ namespace CC_Project
                 if (CodeArray[0] == '=')
                 {
                     MoveNext();
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Greater_equal_operater")] += 2;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "greater_equal_operater")] += 2;
                 }
 
             }
@@ -604,7 +604,7 @@ namespace CC_Project
 
                 bool CharConsumeFlag = false;
                 var CodeArray = SourceCode.ToCharArray();
-                string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnpqrstuvwxyz0123456789";
+                string identifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnpqrstuvwxyz0123456789";
                 if (CodeArray[0] == 'o')
                 {
                     if (!CharConsumeFlag)
@@ -612,17 +612,17 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State19();
                 }
-                if (IdentifierCharacters.Contains(CodeArray[0]))
+                if (identifierCharacters.Contains(CodeArray[0]))
                 {
                     if (!CharConsumeFlag)
                     {
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
 
@@ -636,7 +636,7 @@ namespace CC_Project
 
                 bool CharConsumeFlag = false;
                 var CodeArray = SourceCode.ToCharArray();
-                string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstvwxyz0123456789";
+                string identifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstvwxyz0123456789";
                 if (CodeArray[0] == 'u')
                 {
                     if (!CharConsumeFlag)
@@ -644,17 +644,17 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State20();
                 }
-                if (IdentifierCharacters.Contains(CodeArray[0]))
+                if (identifierCharacters.Contains(CodeArray[0]))
                 {
                     if (!CharConsumeFlag)
                     {
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
             }
@@ -667,7 +667,7 @@ namespace CC_Project
 
                 bool CharConsumeFlag = false;
                 var CodeArray = SourceCode.ToCharArray();
-                string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZacdefghijklmnopqrstuvwxyz0123456789";
+                string identifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZacdefghijklmnopqrstuvwxyz0123456789";
                 if (CodeArray[0] == 'b')
                 {
                     if (!CharConsumeFlag)
@@ -675,17 +675,17 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State21();
                 }
-                if (IdentifierCharacters.Contains(CodeArray[0]))
+                if (identifierCharacters.Contains(CodeArray[0]))
                 {
                     if (!CharConsumeFlag)
                     {
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
             }
@@ -698,7 +698,7 @@ namespace CC_Project
 
                 bool CharConsumeFlag = false;
                 var CodeArray = SourceCode.ToCharArray();
-                string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz0123456789";
+                string identifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz0123456789";
                 if (CodeArray[0] == 'l')
                 {
                     if (!CharConsumeFlag)
@@ -706,17 +706,17 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State22();
                 }
-                if (IdentifierCharacters.Contains(CodeArray[0]))
+                if (identifierCharacters.Contains(CodeArray[0]))
                 {
                     if (!CharConsumeFlag)
                     {
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
             }
@@ -729,7 +729,7 @@ namespace CC_Project
 
                 bool CharConsumeFlag = false;
                 var CodeArray = SourceCode.ToCharArray();
-                string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdfghijklmnopqrstuvwxyz0123456789";
+                string identifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdfghijklmnopqrstuvwxyz0123456789";
                 if (CodeArray[0] == 'e')
                 {
                     if (!CharConsumeFlag)
@@ -737,18 +737,18 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Data_type")] += 6;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "data_type")] += 6;
                     State7();
                 }
-                if (IdentifierCharacters.Contains(CodeArray[0]))
+                if (identifierCharacters.Contains(CodeArray[0]))
                 {
                     if (!CharConsumeFlag)
                     {
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
             }
@@ -769,7 +769,7 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Decrement_Operator")] += 2;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "decrement_Operator")] += 2;
                     State17();
                 }
                 if (CodeArray[0] == '=')
@@ -779,7 +779,7 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Assignment_decrementoperator")] += 2;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "assignment_decrementoperator")] += 2;
                     State16();
                 }
             }
@@ -821,7 +821,7 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Increment_operator")] += 2;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "increment_operator")] += 2;
 
                 }
                 if (CodeArray[0] == '=')
@@ -831,7 +831,7 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Assignment_incrementOperator")] += 2;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "assignment_incrementoperator")] += 2;
 
                 }
             }
@@ -844,7 +844,7 @@ namespace CC_Project
             {
                 bool CharConsumeFlag = false;
                 var CodeArray = SourceCode.ToCharArray();
-                string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz0123456789";
+                string identifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz0123456789";
 
                 if (CodeArray[0] == 'o')
                 {
@@ -853,7 +853,7 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State6();
                 }
                 else if (CodeArray[0] == 'l')
@@ -863,17 +863,17 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State8();
                 }
-                else if (IdentifierCharacters.Contains(CodeArray[0]))
+                else if (identifierCharacters.Contains(CodeArray[0]))
                 {
                     if (!CharConsumeFlag)
                     {
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
 
@@ -884,7 +884,7 @@ namespace CC_Project
             if (!IsSourceCodeEmpty())
             {
 
-                string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnpqrstuvwxyz0123456789";
+                string identifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnpqrstuvwxyz0123456789";
                 bool CharConsumeFlag = false;
                 var CodeArray = SourceCode.ToCharArray();
 
@@ -895,17 +895,17 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State9();
                 }
-                else if (IdentifierCharacters.Contains(CodeArray[0]))
+                else if (identifierCharacters.Contains(CodeArray[0]))
                 {
                     if (!CharConsumeFlag)
                     {
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
             }
@@ -916,7 +916,7 @@ namespace CC_Project
             if (!IsSourceCodeEmpty())
             {
 
-                string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZbcdefghijklmnopqrstuvwxyz0123456789";
+                string identifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZbcdefghijklmnopqrstuvwxyz0123456789";
                 bool CharConsumeFlag = false;
                 var CodeArray = SourceCode.ToCharArray();
 
@@ -927,17 +927,17 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State10();
                 }
-                else if (IdentifierCharacters.Contains(CodeArray[0]))
+                else if (identifierCharacters.Contains(CodeArray[0]))
                 {
                     if (!CharConsumeFlag)
                     {
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
             }
@@ -948,7 +948,7 @@ namespace CC_Project
             if (!IsSourceCodeEmpty())
             {
 
-                string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrsuvwxyz0123456789";
+                string identifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrsuvwxyz0123456789";
                 bool CharConsumeFlag = false;
                 var CodeArray = SourceCode.ToCharArray();
 
@@ -959,18 +959,18 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Data_type")] += 5;
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "data_type")] += 5;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State7();
                 }
-                else if (IdentifierCharacters.Contains(CodeArray[0]))
+                else if (identifierCharacters.Contains(CodeArray[0]))
                 {
                     if (!CharConsumeFlag)
                     {
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
             }
@@ -980,7 +980,7 @@ namespace CC_Project
             if (!IsSourceCodeEmpty())
             {
 
-                string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqstuvwxyz0123456789";
+                string identifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqstuvwxyz0123456789";
                 bool CharConsumeFlag = false;
                 var CodeArray = SourceCode.ToCharArray();
 
@@ -991,18 +991,18 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "For")] += 3;
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "for")] += 3;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State7();
                 }
-                else if (IdentifierCharacters.Contains(CodeArray[0]))
+                else if (identifierCharacters.Contains(CodeArray[0]))
                 {
                     if (!CharConsumeFlag)
                     {
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
             }
@@ -1013,17 +1013,17 @@ namespace CC_Project
             if (!IsSourceCodeEmpty())
             {
 
-                string IdentifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                string identifierCharacters = "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
                 bool CharConsumeFlag = false;
                 var CodeArray = SourceCode.ToCharArray();
-                if (IdentifierCharacters.Contains(CodeArray[0]))
+                if (identifierCharacters.Contains(CodeArray[0]))
                 {
                     if (!CharConsumeFlag)
                     {
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
             }
@@ -1045,7 +1045,7 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Constant")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "constant")] += 1;
                     State4();
                 }
             }
@@ -1085,7 +1085,7 @@ namespace CC_Project
                         MoveNext();
                         CharConsumeFlag = true;
                     }
-                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "Identifier")] += 1;
+                    TokenCountHolderArray[Array.IndexOf(TokenTypes, "identifier")] += 1;
                     State2();
                 }
 

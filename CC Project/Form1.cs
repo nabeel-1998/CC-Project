@@ -19,7 +19,10 @@ namespace CC_Project
 
         private void ParsingTableButton_Click(object sender, EventArgs e)
         {
+            FirstandFollowView form = new FirstandFollowView();
+            form.Show();
 
+            
         }
 
         private List<Token> GenerateToken()

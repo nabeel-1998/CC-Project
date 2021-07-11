@@ -34,8 +34,6 @@ namespace CC_Project
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SourceCodeBox = new System.Windows.Forms.RichTextBox();
             this.TokenBox = new System.Windows.Forms.DataGridView();
-            this.Lexeme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Token = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ParsingTableButton = new System.Windows.Forms.Button();
             this.SymbolTable = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +44,8 @@ namespace CC_Project
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.Lexeme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Token = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.TokenBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SymbolTable)).BeginInit();
             this.SuspendLayout();
@@ -79,19 +79,6 @@ namespace CC_Project
             this.TokenBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TokenBox.Size = new System.Drawing.Size(293, 346);
             this.TokenBox.TabIndex = 2;
-            // 
-            // Lexeme
-            // 
-            this.Lexeme.HeaderText = "Lexeme";
-            this.Lexeme.Name = "Lexeme";
-            this.Lexeme.ReadOnly = true;
-            // 
-            // Token
-            // 
-            this.Token.HeaderText = "Token";
-            this.Token.Name = "Token";
-            this.Token.ReadOnly = true;
-            this.Token.Width = 150;
             // 
             // ParsingTableButton
             // 
@@ -200,6 +187,17 @@ namespace CC_Project
             this.label3.TabIndex = 11;
             this.label3.Text = "Symbol Table";
             // 
+            // Lexeme
+            // 
+            this.Lexeme.HeaderText = "Lexeme";
+            this.Lexeme.Name = "Lexeme";
+            // 
+            // Token
+            // 
+            this.Token.HeaderText = "Token";
+            this.Token.Name = "Token";
+            this.Token.Width = 150;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,8 +226,6 @@ namespace CC_Project
         private System.Windows.Forms.RichTextBox SourceCodeBox;
         private System.Windows.Forms.DataGridView TokenBox;
         private System.Windows.Forms.Button ParsingTableButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lexeme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Token;
         private System.Windows.Forms.DataGridView SymbolTable;
         private System.Windows.Forms.RichTextBox TokenCodeBoc;
         private System.Windows.Forms.Label label1;
@@ -239,6 +235,8 @@ namespace CC_Project
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Value;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lexeme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Token;
     }
 }
 

@@ -47,9 +47,9 @@ namespace CC_Project
         {
             for(int i=1; i<tokenList.Count; i++)
             {
-                if(tokenList[i].TokenType== "Identifier")
+                if(tokenList[i].TokenType== "identifier")
                 {
-                    if(tokenList[i-1].TokenType== "Data_type")
+                    if(tokenList[i-1].TokenType== "data_type")
                     {
                         Insert(tokenList[i].Value, tokenList[i - 1].Value);
                     }
