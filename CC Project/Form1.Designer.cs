@@ -82,16 +82,23 @@ namespace CC_Project
             // 
             // Lexeme
             // 
-            this.Lexeme.HeaderText = "Lexeme";
-            this.Lexeme.Name = "Lexeme";
-            this.Lexeme.ReadOnly = true;
+            // Id
             // 
-            // Token
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
-            this.Token.HeaderText = "Token";
-            this.Token.Name = "Token";
-            this.Token.ReadOnly = true;
-            this.Token.Width = 150;
+            // Value
+            // 
+            this.Value.HeaderText = "Value";
+            this.Value.Name = "Value";
+            this.Value.ReadOnly = true;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
             // 
             // ParsingTableButton
             // 
