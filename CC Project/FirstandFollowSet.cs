@@ -31,8 +31,11 @@ namespace CC_Project
         //U -> close_parenthesisopen_kurli_braceJclose_kurli_brace
         //A -> ICMterminator
         //F -> DIassignment_operatorMterminator
-        //G -> IB
-        //G -> IYM
+        //G -> IG'
+        //G -> ɛ
+        //G -> IG'
+        //G' -> B
+        //G' -> YM
         //G -> ɛ
         //J -> HJ'
         //J -> ɛ
@@ -58,9 +61,9 @@ namespace CC_Project
         /*Our grammer has 15 NON-TERMINALS*/
         /*Our grammer has 30 Production Rules*/
         //Non terminals are S,H,H',U,A,F,G,J,J',C,D,I,B,Y,M
-        
 
-                                               //0    1    2     3    4    5    6   7     8     9    10   11  12   13    14
+
+        //0    1    2     3    4    5    6   7     8     9    10   11  12   13    14
         string[] NON_TERMINALS = new string[] { "S", "H", "H'", "U", "A", "F", "G", "J", "J'", "C", "D", "I", "B", "Y", "M" };
         string[] TERMINALS = new string[] 
         { 
@@ -88,11 +91,12 @@ namespace CC_Project
             "close_kurli_brace",
             "unidentified_Token",
             "ɛ"
+
         };
         List<Sets> FFSets;
         
 
-        production[] Production = new production[30];
+        production[] Production = new production[31];
 
         string[] pRules = new string[] {
                 "H",
@@ -102,8 +106,8 @@ namespace CC_Project
                 "close_parenthesis*open_kurli_brace*J*close_kurli_brace",
                 "I*C*M*terminator",
                 "D*I*assignment_operator*M*terminator",
-                "I*B",
-                "I*Y*M",
+                "I*G'",
+                "I*Y*M", //Not used
                 "ɛ",
                 "H*J'",
                 "ɛ",
@@ -124,7 +128,10 @@ namespace CC_Project
                 "assignment_decrementoperator",
                 "assign_multiplyoperator",
                 "assign_divideoperator",
-                "constant"
+                "constant",
+                "Y*M",
+                "B"
+                
 
         };
 
@@ -133,9 +140,9 @@ namespace CC_Project
         public FirstandFollowSet()
         {
             FFSets = new List<Sets>();
-                                          //0    1    2     3    4    5    6   7     8     9    10   11  12   13    14
-            NON_TERMINALS = new string[] { "S", "H", "H'", "U", "A", "F", "G", "J", "J'", "C", "D", "I", "B", "Y", "M" };
-            for (int i = 0; i < 15; i += 1)
+                                          //0    1    2     3    4    5   6     7     8     9    10   11  12   13    14  15
+            NON_TERMINALS = new string[] { "S", "H", "H'", "U", "A", "F","G'", "G", "J", "J'", "C", "D", "I", "B", "Y", "M" };
+            for (int i = 0; i < NON_TERMINALS.Length; i += 1)
             {
                 FFSets.Add(new Sets { NonTerminal = NON_TERMINALS[i] });
             }
@@ -148,7 +155,7 @@ namespace CC_Project
             Production[5] = new production { NonTerminal = "A", ProductionRule = pRules[5].Split('*').ToList() };
             Production[6] = new production { NonTerminal = "F", ProductionRule = pRules[6].Split('*').ToList() };
             Production[7] = new production { NonTerminal = "G", ProductionRule = pRules[7].Split('*').ToList() };
-            Production[8] = new production { NonTerminal = "G", ProductionRule = pRules[8].Split('*').ToList() };
+            Production[8] = new production { NonTerminal = "G'", ProductionRule = pRules[30].Split('*').ToList() };
             Production[9] = new production { NonTerminal = "G", ProductionRule = pRules[9].Split('*').ToList() };
             Production[10] = new production { NonTerminal = "J", ProductionRule = pRules[10].Split('*').ToList() };
             Production[11] = new production { NonTerminal = "J", ProductionRule = pRules[11].Split('*').ToList() };
@@ -170,6 +177,7 @@ namespace CC_Project
             Production[29] = new production { NonTerminal = "M", ProductionRule = pRules[29].Split('*').ToList() };
             Production[12] = new production { NonTerminal = "J'", ProductionRule = pRules[12].Split('*').ToList() };
             Production[13] = new production { NonTerminal = "J'", ProductionRule = pRules[13].Split('*').ToList() };
+            Production[30] = new production { NonTerminal = "G'", ProductionRule = pRules[31].Split('*').ToList() };
 
         }
 
@@ -210,9 +218,9 @@ namespace CC_Project
         {
             await Task.Run(() => 
             {
-                foreach (var item in NON_TERMINALS)
-                {
-                    var list = FindFirstSet(item);
+            foreach (var item in NON_TERMINALS)
+            {
+                var list = FindFirstSet(item);
                     var followlist = FindFollowSet(item);
                     var Tobject = FFSets.FirstOrDefault(x => x.NonTerminal == item);
                     if (Tobject != null)
@@ -236,7 +244,7 @@ namespace CC_Project
             return FFSets;
         }
 
-        public List<String> FindFollowSet(string Non_Terminal)
+    public List<String> FindFollowSet(string Non_Terminal)
         {
             List<string> followSetList = new List<string>();
             if (Non_Terminal == "S")
@@ -255,11 +263,20 @@ namespace CC_Project
                     {
                         if (j == Production[i].ProductionRule.Count - 1)
                         {
-                            var RightFollowlist = FindFollowSet(Production[i].NonTerminal);
-                            foreach (var item in RightFollowlist)
+                            if(Production[i].NonTerminal==Non_Terminal)
                             {
-                                followSetList.Add(item);
+
                             }
+                            else
+                            {
+                                var RightFollowlist = FindFollowSet(Production[i].NonTerminal);
+                                foreach (var item in RightFollowlist)
+                                {
+                                    if(!followSetList.Contains(item))
+                                    followSetList.Add(item);
+                                }
+                            }
+                          
                         }
                         else if (TERMINALS.Contains(Production[i].ProductionRule[j + 1]))
                         {
@@ -287,15 +304,23 @@ namespace CC_Project
                                 }
                                 if (j + m + 1 >= Production[i].ProductionRule.Count)
                                 {
-                                    var rightruleList = FindFollowSet(Production[i].NonTerminal);
-                                    foreach (var item in rightruleList)
+                                    if(Production[i].ProductionRule[j+m]==Production[i].NonTerminal)
                                     {
-                                        if (!followSetList.Contains(item))
-                                        {
-                                            followSetList.Add(item);
-                                        }
+                                        break;
                                     }
-                                    break;
+                                    else
+                                    {
+                                        var rightruleList = FindFollowSet(Production[i].NonTerminal);
+                                        foreach (var item in rightruleList)
+                                        {
+                                            if (!followSetList.Contains(item))
+                                            {
+                                                followSetList.Add(item);
+                                            }
+                                        }
+                                        break;
+                                    }
+                                   
                                 }
                                 else
                                 {
@@ -304,7 +329,18 @@ namespace CC_Project
 
                             }
 
+                            if(!FindFirstSet(Production[i].ProductionRule[j + m]).Contains("ɛ"))
+                            {
+                                var firstsetList = FindFirstSet(Production[i].ProductionRule[j + m]);
+                                foreach (var item in firstsetList)
+                                {
+                                    if (!followSetList.Contains(item))
+                                    {
+                                        followSetList.Add(item);
+                                    }
 
+                                }
+                            }
                         }
 
                     }

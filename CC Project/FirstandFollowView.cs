@@ -25,15 +25,17 @@ namespace CC_Project
 
             foreach (var item in list)
             {
-                string firstset = "";
-                foreach(var setElement in item.FirstSet)
-                {
-                    firstset += "," + setElement;
-                }
+               
 
-                ffsets.Rows.Add(item.NonTerminal, firstset, item.FollowSet);
+                string firstset = string.Join(", ", item.FirstSet);
+                string followset = string.Join(", ", item.FollowSet);
+                string FirstSetToDisplay = "{ " +firstset+" }";
+                string FollowSetToDisplay = "{ " +followset+" }";
+                ffsets.Rows.Add(item.NonTerminal, FirstSetToDisplay, FollowSetToDisplay);
             }
 
         }
+
+    
     }
 }

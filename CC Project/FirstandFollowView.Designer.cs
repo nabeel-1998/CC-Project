@@ -29,9 +29,9 @@ namespace CC_Project
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ffsets = new System.Windows.Forms.DataGridView();
             this.NONTERMINALS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FIRSTSET = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,19 +51,20 @@ namespace CC_Project
             this.ffsets.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ffsets.Size = new System.Drawing.Size(1143, 401);
             this.ffsets.TabIndex = 0;
+           
             // 
             // NONTERMINALS
             // 
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NONTERMINALS.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NONTERMINALS.DefaultCellStyle = dataGridViewCellStyle1;
             this.NONTERMINALS.HeaderText = "NON TERMINAL";
             this.NONTERMINALS.Name = "NONTERMINALS";
             this.NONTERMINALS.ReadOnly = true;
             // 
             // FIRSTSET
             // 
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FIRSTSET.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FIRSTSET.DefaultCellStyle = dataGridViewCellStyle2;
             this.FIRSTSET.HeaderText = "FIRST SET";
             this.FIRSTSET.Name = "FIRSTSET";
             this.FIRSTSET.ReadOnly = true;
@@ -71,8 +72,8 @@ namespace CC_Project
             // 
             // FOLLOWSET
             // 
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FOLLOWSET.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FOLLOWSET.DefaultCellStyle = dataGridViewCellStyle3;
             this.FOLLOWSET.HeaderText = "FOLLOW SET";
             this.FOLLOWSET.Name = "FOLLOWSET";
             this.FOLLOWSET.ReadOnly = true;
